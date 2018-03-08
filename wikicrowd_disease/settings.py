@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'users_oauth',
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -47,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'wikicrowd_disease.urls'
@@ -62,6 +65,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -69,6 +74,20 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'wikicrowd_disease.wsgi.application'
 
+
+# Authentication
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.mediawiki.MediaWiki',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+SOCIAL_AUTH_MEDIAWIKI_KEY = '**super secret key**'
+SOCIAL_AUTH_MEDIAWIKI_SECRET = '**super secret secret**'
+SOCIAL_AUTH_MEDIAWIKI_URL = 'https://meta.wikimedia.org/w/index.php'
+SOCIAL_AUTH_MEDIAWIKI_CALLBACK = 'http://localhost:8000/oauth/complete/mediawiki/'
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'profile'
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
