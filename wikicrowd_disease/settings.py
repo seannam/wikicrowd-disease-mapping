@@ -81,11 +81,6 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
-SOCIAL_AUTH_MEDIAWIKI_KEY = '**super secret key**'
-SOCIAL_AUTH_MEDIAWIKI_SECRET = '**super secret secret**'
-SOCIAL_AUTH_MEDIAWIKI_URL = 'https://meta.wikimedia.org/w/index.php'
-SOCIAL_AUTH_MEDIAWIKI_CALLBACK = 'http://localhost:8000/oauth/complete/mediawiki/'
-
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'profile'
 
@@ -124,7 +119,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Los_Angeles'
 
 USE_I18N = True
 
