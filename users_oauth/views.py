@@ -4,13 +4,13 @@ from django.contrib.auth.decorators import login_required
 
 def index(request):
     context = {}
-    return render(request, 'index.html', context)
+    return render(request, 'users_oauth/index.html', context)
 
 
 @login_required()
 def profile(request):
     context = {}
-    return render(request, 'profile.html', context)
+    return render(request, 'users_oauth/profile.html', context)
 
 
 def login_oauth(request):
