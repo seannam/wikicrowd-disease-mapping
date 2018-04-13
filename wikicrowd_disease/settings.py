@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users_oauth',
+    'disease_mapping',
     'social_django',
 ]
 
