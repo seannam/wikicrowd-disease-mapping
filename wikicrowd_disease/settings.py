@@ -19,11 +19,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'o%(pk6)wk9rm2t=exl1w8-og#zfr&y8e_u%c0xk@hn--u=%f+e'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -132,3 +127,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = 'o%(pk6)wk9rm2t=exl1w8-og#zfr&y8e_u%c0xk@hn--u=%f+e'
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
+
+SOCIAL_AUTH_MEDIAWIKI_KEY = 'c9e75c167cfe5d35dc7ceb23fad92cf7'
+SOCIAL_AUTH_MEDIAWIKI_SECRET = '94535ee7b1c540a90c810b2a62398c8443f2ddce'
+SOCIAL_AUTH_MEDIAWIKI_URL = 'https://meta.wikimedia.org/w/index.php'
+SOCIAL_AUTH_MEDIAWIKI_CALLBACK = 'http://127.0.0.1:8080/oauth/complete/mediawiki/'
