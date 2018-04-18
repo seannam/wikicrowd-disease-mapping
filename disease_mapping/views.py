@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.views.generic import DetailView, ListView
+from .models import Disease
 
 
 def index(request):
@@ -27,7 +28,16 @@ def index(request):
     ]
 
     context = {
-        'diseases': diseases,
+        'disease_list': diseases,
     }
 
     return render(request, 'disease_mapping/index.html', context)
+
+
+class DiseaseListView(ListView):
+    model = Disease
+    # context_object_name = disease_list
+
+
+class DiseaseDetailView(ListView):
+    model = Disease

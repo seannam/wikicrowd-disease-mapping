@@ -4,7 +4,7 @@
   <style type="text/css">
     table {
       border-collapse: collapse;
-      border: 1px solid black;
+      /*border: 1px solid black;*/
       width: 1000px;
       margin: 40px 50px 40px 60px;
     }
@@ -14,9 +14,10 @@
     }
 
     tbody tr:nth-child(odd){
-      /*background-color: #4C8BF5;*/
-      /*color: #fff;*/
       background-color: lightgray;
+    }
+    tbody tr:nth-child(even){
+      background-color: #A8A8A8;
     }
     td {
       width: 200px;
@@ -31,11 +32,16 @@
 <br>
 
   <table>
-    {% for disease in diseases %}
+    {% for disease in disease_list %}
     <tr>
       <td colspan="4">
-        {{ disease.DOID }} <br>
-        {{ disease.name }}
+        <a href="{% url 'diseases' %}" >
+          {{ disease.pk }}
+          <br>
+          <br>
+          <!-- {{ disease.DOID }} <br> -->
+          {{ disease.name }}
+        </a>
       </td>
       <td>
         {% if disease.match_status %}
