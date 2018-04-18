@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<header>
+  <style type="text/css">
+    table {
+      border-collapse: collapse;
+      /*border: 1px solid black;*/
+      width: 1000px;
+      margin: 40px 50px 40px 60px;
+    }
+
+    tbody td{
+      padding: 20px;
+    }
+
+    tbody tr:nth-child(odd){
+      background-color: lightgray;
+    }
+    tbody tr:nth-child(even){
+      background-color: #A8A8A8;
+    }
+    td {
+      width: 200px;
+    }
+    .text_match_status {
+      font-style: italic;
+    }
+  </style>  
+</header>
+<body>
+<h1>Wikicrowd Disease Mapping</h1>
+<br>
+
+  <table>
+    {% for disease in disease_list %}
+    <tr>
+      <td colspan="4">
+        <a href="{% url 'diseases' %}" >
+          {{ disease.pk }}
+          <br>
+          <br>
+          <!-- {{ disease.DOID }} <br> -->
+          {{ disease.name }}
+        </a>
+      </td>
+      <td>
+        {% if disease.match_status %}
+          <p class="text_match_status">matched</p>
+        {% else %}
+          <p class="text_match_status">not matched</p>
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+
+</body>
+</html>

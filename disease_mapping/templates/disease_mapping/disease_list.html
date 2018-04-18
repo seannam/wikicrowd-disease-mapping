@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <h1>disease List</h1>
+
+    {% if disease_list %}
+    <ul>
+
+      {% for disease in disease_list %}
+      <li>
+        <a href="{{ disease.get_absolute_url }}">{{ disease.name }}</a> ({{disease.doid}})
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>There are no diseases in the library.</p>
+    {% endif %}
+</body>
+</html>
