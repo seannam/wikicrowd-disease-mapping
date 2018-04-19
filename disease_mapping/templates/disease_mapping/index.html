@@ -20,7 +20,7 @@
       background-color: #A8A8A8;
     }
     td {
-      width: 200px;
+      width: 80px;
     }
     .text_match_status {
       font-style: italic;
@@ -34,13 +34,17 @@
   <table>
     {% for disease in disease_list %}
     <tr>
-      <td colspan="4">
-        <a href="{% url 'diseases' %}" >
-          {{ disease.pk }}
-          <br>
-          <br>
-          <!-- {{ disease.DOID }} <br> -->
+      <td>
+        {{ disease.pk }}
+      </td>
+      <td colspan="8">
+        
+        <a href="{% url 'disease-detail' disease.pk %}">
           {{ disease.name }}
+          <br>
+          <br>
+          {{ disease.doid }} 
+          <br>
         </a>
       </td>
       <td>
