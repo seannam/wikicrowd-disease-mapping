@@ -11,10 +11,9 @@
 
       {% for disease in disease_list %}
       <li>
-        <a href="{{ disease.get_absolute_url }}">{{ disease.name }}</a> ({{disease.doid}})
+        <a href="{% url 'disease-detail' disease.pk %}">{{ disease.name }}</a> ({{disease.doid}})
       </li>
       {% endfor %}
-
     </ul>
     {% else %}
       <p>There are no diseases in the library.</p>
