@@ -4,31 +4,12 @@ from .models import Disease
 
 
 def index(request):
-    diseases = [
-        {
-            "name": "Systemic Lupus Erythematosus",
-            "DOID": "DOID9034",
-            "match_status": True,
-        },
-        {
-            "name": "Systemic Lupine Ethemosuss",
-            "DOID": "DOID1234",
-            "match_status": False,
-        },
-        {
-            "name": "Lupine Erythrisis",
-            "DOID": "DOID4234",
-            "match_status": False,
-        },
-        {
-            "name": "Lupinedid Erythrsmousis",
-            "DOID": "DOID8234",
-            "match_status": False,
-        },
-    ]
+
+    disease_list = Disease.objects.order_by('doid')
 
     context = {
-        'disease_list': diseases,
+        # 'disease_list': diseases,
+        'disease_list': disease_list,
     }
 
     return render(request, 'disease_mapping/index.html', context)
@@ -39,5 +20,5 @@ class DiseaseListView(ListView):
     # context_object_name = disease_list
 
 
-class DiseaseDetailView(ListView):
+class DiseaseDetailView(DetailView):
     model = Disease

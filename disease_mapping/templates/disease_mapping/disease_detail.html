@@ -1,8 +1,14 @@
 <!DOCTYPE html>
 <html>
 <body>
-  {{ disease.name }}
-  {{ disease.doid }}
-  {{ disease.matched_status }}
+  <h2>{{ disease.doid }} </h2>
+  <h3>{{ disease.name }}</h3>
+  current status:
+  {% if disease.match_status %}
+    matched
+  {% else %}
+    not matched
+  {% endif %}
+  
 </body>
 </html>
